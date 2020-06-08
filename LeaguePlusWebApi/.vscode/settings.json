@@ -1,0 +1,5 @@
+{
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "bin\\Release\\netcoreapp3.1\\publish",
+    "appService.defaultWebAppToDeploy": "/subscriptions/76f21e2a-8833-4bfc-b7e2-1c5dac9db9f7/resourceGroups/LeaguePlus/providers/Microsoft.Web/sites/LeaguePlusApi"
+}
