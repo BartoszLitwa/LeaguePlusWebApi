@@ -24,5 +24,11 @@ namespace LeaguePlusWebApi.Controllers
         {
             return Ok("OK");
         }
+
+        [HttpPost("authenticate")]
+        public ActionResult Authenticate([FromBody] UserCred userCred)
+        {
+            return Ok();
+        }
     }
 }

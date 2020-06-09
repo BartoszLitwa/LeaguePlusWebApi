@@ -73,7 +73,7 @@ namespace LeaguePlusWebApi.Interfaces
             _client.DefaultRequestHeaders.Add(name: "Accept-Language", value: "pl-PL,pl;q=0.9,en-US;q=0.8,en;q=0.7");
             //_client.DefaultRequestHeaders.Add(name: "Accept-Charset", value: "application/x-www-form-urlencoded; charset=UTF-8");
             _client.DefaultRequestHeaders.Add(name: "Origin", value: "https://developer.riotgames.com");
-            _client.DefaultRequestHeaders.Add(name: "X-Riot-Token", value: _configuration[KeyVaultData.ApiRiotKey]));
+            _client.DefaultRequestHeaders.Add(name: "X-Riot-Token", value: /*_configuration[KeyVaultData.ApiRiotKey])*/"RGAPI-2642e8ac-c03d-4dca-ae81-0638bcd81b96");
         }
     }
 }

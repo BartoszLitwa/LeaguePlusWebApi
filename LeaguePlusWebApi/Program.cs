@@ -13,7 +13,7 @@ namespace LeaguePlusWebApi
     {
         public static void Main(string[] args)
         {
-            BuildWebHostDevelopment(args).Run();
+            BuildWebHost(args).Run();
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
