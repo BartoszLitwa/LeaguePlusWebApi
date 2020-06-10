@@ -1,23 +1,20 @@
-﻿using LeaguePlusWebApi.Interfaces;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LeaguePlusWebApi.Controllers
+namespace LeaguePlusWebApi
 {
     [Route("api/")]
     [ApiController]
     public class SummonerController : ControllerBaseHandler
     {
-        private readonly IConfiguration _configuration;
         private readonly IWebClient _webClient;
 
-        public SummonerController(IConfiguration configuration, IWebClient webClient) : base(webClient)
+        public SummonerController(IWebClient webClient) : base(webClient)
         {
-            _configuration = configuration;
             _webClient = webClient;
         }
 

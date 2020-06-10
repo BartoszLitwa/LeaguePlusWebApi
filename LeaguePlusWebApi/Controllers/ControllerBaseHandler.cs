@@ -1,12 +1,11 @@
-﻿using LeaguePlusWebApi.Interfaces;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LeaguePlusWebApi.Controllers
+namespace LeaguePlusWebApi
 {
     [Authorize]
     public class ControllerBaseHandler : ControllerBase

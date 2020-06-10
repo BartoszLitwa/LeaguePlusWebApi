@@ -1,4 +1,4 @@
-﻿namespace LeaguePlusWebApi.Controllers
+﻿namespace LeaguePlusWebApi
 {
     public class UserCred
     {

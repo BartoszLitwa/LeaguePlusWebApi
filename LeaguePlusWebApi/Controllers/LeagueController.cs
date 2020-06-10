@@ -1,23 +1,20 @@
-﻿using LeaguePlusWebApi.Interfaces;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LeaguePlusWebApi.Controllers
+namespace LeaguePlusWebApi
 {
     [Route("api/")]
     [ApiController]
     public class LeagueController : ControllerBaseHandler
     {
-        private readonly IConfiguration _configuration;
         private readonly IWebClient _webClient;
 
-        public LeagueController(IConfiguration configuration, IWebClient webClient) : base(webClient)
+        public LeagueController(IWebClient webClient) : base(webClient)
         {
-            _configuration = configuration;
             _webClient = webClient;
         }
 
@@ -56,17 +53,17 @@ namespace LeaguePlusWebApi.Controllers
         }
 
         // GET All League Entries
-        [HttpGet("{region}/lol/league/v4/masterleagues/by-queue/{queue}")]
+        [HttpGet("{region}/lol/league/v4/entries/{queue}/{tier}/{division}")]
         public async Task<ActionResult> GetAllLeaguesEntries(string region, string queue, string tier, string division)
         {
             return await HandleWebRequest($"{region}/lol/league/v4/entries/{queue}/{tier}/{division}");
         }
 
         // GET League by league ID
-        [HttpGet("{region}/lol/league/v4/masterleagues/by-queue/{leagueId}")]
+        [HttpGet("{region}/lol/league/v4/leagues/{leagueId}")]
         public async Task<ActionResult> GetLeagueByID(string region, string leagueId)
         {
-            return await HandleWebRequest($"{region}/lol/league/v4/masterleagues/by-queue/{leagueId}");
+            return await HandleWebRequest($"{region}/lol/league/v4/leagues/{leagueId}");
         }
     }
 }

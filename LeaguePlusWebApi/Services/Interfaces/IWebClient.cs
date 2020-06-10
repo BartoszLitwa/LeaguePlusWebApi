@@ -3,12 +3,14 @@ using Microsoft.Azure.KeyVault.Models;
 using System;
 using System.Threading.Tasks;
 
-namespace LeaguePlusWebApi.Interfaces
+namespace LeaguePlusWebApi
 {
     public interface IWebClient
     {
         Task<string> GetFromUrl(string url);
 
-        void AddHeadersForRiotApi();
+        string GetFullUrl(string url);
+
+        void AddHeaders();
     }
 }
