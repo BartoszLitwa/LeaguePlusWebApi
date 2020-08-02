@@ -12,6 +12,6 @@ namespace LeaguePlusWebApi
         public string region { get; set; }
 
         [Required]
-        public string summonerID { get; set; }
+        public string puuid { get; set; }
     }
 }

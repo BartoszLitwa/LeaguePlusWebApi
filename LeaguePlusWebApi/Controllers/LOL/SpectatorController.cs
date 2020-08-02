@@ -12,10 +12,12 @@ namespace LeaguePlusWebApi
     public class SpectatorController : ControllerBaseHandler
     {
         private readonly IWebClient _webClient;
+        private readonly ILogger _logger;
 
-        public SpectatorController(IWebClient webClient) : base(webClient)
+        public SpectatorController(IWebClient webClient, ILogger logger) : base(webClient, logger)
         {
             _webClient = webClient;
+            _logger = logger;
         }
 
         [HttpGet]

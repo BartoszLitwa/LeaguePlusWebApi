@@ -11,19 +11,50 @@ namespace LeaguePlusWebApi
     public class ControllerBaseHandler : ControllerBase
     {
         private readonly IWebClient _webClient;
+        private readonly ILogger _logger;
 
-        public ControllerBaseHandler(IWebClient webClient)
+        public ControllerBaseHandler(IWebClient webClient, ILogger logger)
         {
             _webClient = webClient;
+            _logger = logger;
         }
 
         public async Task<ActionResult> HandleWebRequest(string url)
         {
             var response = await _webClient.GetFromUrl(url);
-            if (string.IsNullOrEmpty(response))
-                return NotFound();
+            if(response == null || !response.IsSuccessStatusCode)
+            {
+                _logger.LogError($"[{response.StatusCode}] Couldnt get the response from {url}");
+                return StatusCode((int)response.StatusCode);
+            }
 
-            return Ok(response);
+            var json = await response.Content.ReadAsStringAsync();
+            if (string.IsNullOrEmpty(json))
+            {
+                _logger.LogError($"[{response.StatusCode}] response from {url} is empty");
+                return NotFound();
+            }
+
+            return Ok(json);
+        }
+
+        public async Task<string> GetJsonFromUrl(string url)
+        {
+            var response = await _webClient.GetFromUrl(url, false);
+            if (response == null || !response.IsSuccessStatusCode)
+            {
+                _logger.LogError($"[{response.StatusCode}] Couldnt get the response from {url}");
+                return null;
+            }
+
+            var json = await response.Content.ReadAsStringAsync();
+            if (string.IsNullOrEmpty(json))
+            {
+                _logger.LogError($"[{response.StatusCode}] response from {url} is empty");
+                return null;
+            }
+
+            return json;
         }
     }
 }

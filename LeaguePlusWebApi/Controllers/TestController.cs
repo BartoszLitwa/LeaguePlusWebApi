@@ -8,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 
 namespace LeaguePlusWebApi
 {
-    [Route("api/Test")]
     [ApiController]
     public class TestController : ControllerBase
     {
@@ -22,7 +21,13 @@ namespace LeaguePlusWebApi
         [HttpGet]
         public ActionResult Get()
         {
-            return Ok("OK");
+            return Ok("Created By Bartosz Litwa");
+        }
+
+        [HttpGet("jd")]
+        public ActionResult jd()
+        {
+            return Ok("Jebac disa kurwe zwisa!");
         }
 
         [HttpPost("authenticate")]

@@ -29,9 +29,11 @@ namespace LeaguePlusWebApi
 
             services.AddControllers();
 
-            services.AddScoped<IWebClient, WebClient>();
-            services.AddScoped<ILogger, ConsoleLogger>();
-            services.AddScoped<IDatabase, SqlDatabase>();
+            services.AddSingleton<IWebClient, WebClient>();
+            services.AddSingleton<ILogger, ConsoleLogger>();
+            services.AddSingleton<IDatabase, SqlDatabase>();
+
+            var key = Configuration["JWTToken-Key"] ?? "epBIqd7_rhwSp9pl0gB3iJYggjzEXCR-1rl_8N8MseWXsn6W562J-vcymDp9cC2sgxuzGbaN2ahH5A";
 
             services.AddAuthentication(x => {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -42,13 +44,13 @@ namespace LeaguePlusWebApi
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration["JWTToken-Key"])),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key)),
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
             });
 
-            services.AddSingleton<IJwtAuthenticationManager>(new JwtAuthenticationManager(Configuration["JWTToken-Key"]));
+            services.AddSingleton<IJwtAuthenticationManager>(new JwtAuthenticationManager(key));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -12,10 +12,12 @@ namespace LeaguePlusWebApi
     public class MatchController : ControllerBaseHandler
     {
         private readonly IWebClient _webClient;
+        private readonly ILogger _logger;
 
-        public MatchController(IWebClient webClient) : base(webClient)
+        public MatchController(IWebClient webClient, ILogger logger) : base(webClient, logger)
         {
             _webClient = webClient;
+            _logger = logger;
         }
 
         [HttpGet]

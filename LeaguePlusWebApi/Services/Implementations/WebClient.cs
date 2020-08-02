@@ -24,7 +24,7 @@ namespace LeaguePlusWebApi
             AddHeaders();
         }
 
-        public async Task<string> GetFromUrl(string url)
+        public async Task<HttpResponseMessage> GetFromUrl(string url, bool lolLink = true)
         {
             if(string.IsNullOrEmpty(url))
             {
@@ -32,7 +32,7 @@ namespace LeaguePlusWebApi
                 return null;
             }
 
-            var fullUrl = GetFullUrl(url);
+            var fullUrl = lolLink ? GetFullUrl(url) : url;
 
             try
             {
@@ -43,8 +43,6 @@ namespace LeaguePlusWebApi
                         _logger.LogError($"Rate limit exceeded!");
                     else
                         _logger.LogError($"[{response.StatusCode}] Error while fetching data from {fullUrl}.");
-
-                    return null;
                 }
 
                 string json = await response.Content.ReadAsStringAsync();
@@ -52,10 +50,9 @@ namespace LeaguePlusWebApi
                 if (string.IsNullOrEmpty(json))
                 {
                     _logger.LogError($"[{response.StatusCode}] Couldnt get any response from {fullUrl}.");
-                    return null;
                 }
 
-                return json;
+                return response;
             }
             catch (Exception ex)
             {
