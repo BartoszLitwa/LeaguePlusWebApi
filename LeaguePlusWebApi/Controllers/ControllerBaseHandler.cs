@@ -19,6 +19,11 @@ namespace LeaguePlusWebApi
             _logger = logger;
         }
 
+        protected ControllerBaseHandler(IWebClient webClient)
+        {
+            _webClient = webClient;
+        }
+
         public async Task<ActionResult> HandleWebRequest(string url)
         {
             var response = await _webClient.GetFromUrl(url);

@@ -1,3 +1,5 @@
+using LeaguePlus.Core;
+using LeaguePlus.Database;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -6,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.VisualStudio.Web.CodeGeneration;
 using System.Text;
 
 namespace LeaguePlusWebApi
@@ -23,15 +24,12 @@ namespace LeaguePlusWebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(opt =>
-                opt.UseSqlServer(string.Format(Configuration.GetConnectionString("DefaultConnection"), Configuration["Database-Password"]))
-            );
+            services.AddDatabaseStore(string.Format(Configuration.GetConnectionString("DefaultConnection"), Configuration["Database-Password"]));
 
             services.AddControllers();
 
             services.AddSingleton<IWebClient, WebClient>();
             services.AddSingleton<ILogger, ConsoleLogger>();
-            services.AddSingleton<IDatabase, SqlDatabase>();
 
             var key = Configuration["JWTToken-Key"] ?? "epBIqd7_rhwSp9pl0gB3iJYggjzEXCR-1rl_8N8MseWXsn6W562J-vcymDp9cC2sgxuzGbaN2ahH5A";
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace LeaguePlusWebApi
+namespace LeaguePlus.Core
 {
     public class User
     {
@@ -17,6 +17,9 @@ namespace LeaguePlusWebApi
 
         [Required]
         public DateTime CreationTime { get; set; }
+
+        [Required]
+        public DateTime LastloggedTime { get; set; }
 
         public List<Summoner> summoners { get; set; }
 

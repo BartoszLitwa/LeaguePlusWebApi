@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeaguePlusWebApi", "LeaguePlusWebApi\LeaguePlusWebApi.csproj", "{CD61FB89-E7D0-4036-814E-58B66FAA4A33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeaguePlus.WebApi", "LeaguePlusWebApi\LeaguePlus.WebApi.csproj", "{CD61FB89-E7D0-4036-814E-58B66FAA4A33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeaguePlus.DiscordBot", "LeaguePlus.DiscordBot\LeaguePlus.DiscordBot.csproj", "{803D982E-A4AE-4190-B39C-DCC0630B3F49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeaguePlus.Core", "LeaguePlus.Core\LeaguePlus.Core.csproj", "{23AC35E1-02D9-4D2B-B901-3A991B98DC6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeaguePlus.Database", "LeaguePlus.Database\LeaguePlus.Database.csproj", "{EFCDB822-0725-47E6-9872-F8A03CC1BC83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{CD61FB89-E7D0-4036-814E-58B66FAA4A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD61FB89-E7D0-4036-814E-58B66FAA4A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD61FB89-E7D0-4036-814E-58B66FAA4A33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{803D982E-A4AE-4190-B39C-DCC0630B3F49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{803D982E-A4AE-4190-B39C-DCC0630B3F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{803D982E-A4AE-4190-B39C-DCC0630B3F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{803D982E-A4AE-4190-B39C-DCC0630B3F49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23AC35E1-02D9-4D2B-B901-3A991B98DC6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23AC35E1-02D9-4D2B-B901-3A991B98DC6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23AC35E1-02D9-4D2B-B901-3A991B98DC6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23AC35E1-02D9-4D2B-B901-3A991B98DC6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFCDB822-0725-47E6-9872-F8A03CC1BC83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFCDB822-0725-47E6-9872-F8A03CC1BC83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFCDB822-0725-47E6-9872-F8A03CC1BC83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFCDB822-0725-47E6-9872-F8A03CC1BC83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

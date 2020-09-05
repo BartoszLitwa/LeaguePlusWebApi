@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace LeaguePlusWebApi
+namespace LeaguePlus.Core
 {
     public interface IDatabase
     {

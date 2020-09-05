@@ -1,4 +1,4 @@
-﻿namespace LeaguePlusWebApi
+﻿namespace LeaguePlus.Core
 {
     public class UserCred
     {

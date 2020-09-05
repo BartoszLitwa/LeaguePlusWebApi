@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.KeyVault.Models;
-using System;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace LeaguePlusWebApi
+namespace LeaguePlus.Core
 {
     public interface IWebClient
     {
