@@ -6,6 +6,11 @@ namespace LeaguePlus.Core
 {
     public class FileLogger : ILogger
     {
+        public void Log(string content, ConsoleColor color)
+        {
+            throw new NotImplementedException();
+        }
+
         public void LogDevInfo(string content)
         {
             throw new NotImplementedException();

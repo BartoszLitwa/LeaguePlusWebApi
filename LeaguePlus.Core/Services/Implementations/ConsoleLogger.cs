@@ -6,36 +6,34 @@ namespace LeaguePlus.Core
     {
         public void LogError(string content)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(content);
-            Console.ResetColor();
+            Log(content, ConsoleColor.Red);
         }
 
         public void LogSuccessful(string content)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(content);
-            Console.ResetColor();
+            Log(content, ConsoleColor.Green);
         }
 
         public void LogInformation(string content)
         {
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(content);
-            Console.ResetColor();
+            Log(content, ConsoleColor.White);
         }
 
         public void LogWarning(string content)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(content);
-            Console.ResetColor();
+            Log(content, ConsoleColor.Yellow);
         }
 
         public void LogDevInfo(string content)
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine(content);
+            Log(content, ConsoleColor.Blue);
+        }
+
+        public void Log(string content, ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
+            var time = DateTime.Now.ToString("HH:mm:ss");
+            Console.WriteLine($"[{time}] {content}");
             Console.ResetColor();
         }
     }

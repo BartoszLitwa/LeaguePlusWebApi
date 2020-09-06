@@ -16,5 +16,7 @@ namespace LeaguePlus.Core
         void LogSuccessful(string content);
 
         void LogDevInfo(string content);
+
+        void Log(string content, ConsoleColor color);
     }
 }

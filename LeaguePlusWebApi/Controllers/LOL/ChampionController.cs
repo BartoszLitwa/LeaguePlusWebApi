@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using LeaguePlus.Core;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace LeaguePlusWebApi
